@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SecondKadaiApp
-//
-//  Created by 福井千裕 on 2018/11/15.
-//  Copyright © 2018年 fukuir. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -19,7 +11,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // segueから遷移先のResultViewControllerを取得する
+        let resultViewController:ResultViewController = segue.destination as! ResultViewController
+        // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
+        print(TextFild.text!)
+        resultViewController.name = TextFild.text!
+    }
+    @IBOutlet weak var TextFild: UITextField!
+    @IBAction func unwind(_ segue: UIStoryboardSegue){
+    }
 }
 
